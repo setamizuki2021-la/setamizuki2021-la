@@ -2,15 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>ログイン画面</title>
+<title>ログイン</title>
 </head>
 <body>
 <p>ログイン画面</p>
 <form action="/login" method="post">
-ユーザID  <input type="text" name="user_id"><br>
+ユーザID  <input type="text" name="userId"><br>
 パスワード    <input type="password" name="password"><br>
          <input type="submit" value="ログイン">
 </form>
+  <span th:text="${message}" style="color:red"></span><br> 
 <a href="/new">アカウント新規作成はこちら</a>
 </body>
 </html>

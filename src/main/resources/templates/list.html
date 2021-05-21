@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToDo一覧</title>
 </head>
 <body>
-
+<p>ログアウト</p>
+<table border="1">
+<tr><th>✓</th><th></th><th>ToDo</th><th></th></tr>
+<tr >
+	<td ></td>
+	<td ></td>
+	<td th:href="'/'+${todo.title}"></td>
+	<td ></td>
+</tr>
+</table>
 </body>
 </html>
