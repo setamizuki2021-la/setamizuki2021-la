@@ -5,14 +5,17 @@
 <title>ToDo一覧</title>
 </head>
 <body>
-<p>ログアウト</p>
+<a href="/logout">ログアウト</a>
+<form action="/add">
+<input type="submit" value="追加">
+</form>
 <table border="1">
 <tr><th>✓</th><th></th><th>ToDo</th><th></th></tr>
-<tr >
-	<td ></td>
-	<td ></td>
-	<td th:href="'/'+${todo.title}"></td>
-	<td ></td>
+<tr th:each="todo:${todo}">
+	<td></td>
+	<td><form action="/check"><input type="submit" value="完了">	</form></td>
+	<td> <a th:href="'/add/'+${todo.code}"><span th:text="${todo.title}"></span></a></td>
+	<td><input type="submit" value="削除"></td>
 </tr>
 </table>
 </body>

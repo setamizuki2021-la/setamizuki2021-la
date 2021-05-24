@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>追加・編集</title>
 </head>
 <body>
+<p>追加・編集</p>
+<form action="/add" method="post">
+<table border="1">
+<tr>
+<th>内容</th>
+<th></th>
+</tr>
 
+<tr>
+<!-- <td th:text="${'/add/'+${todo.code}}"></td> -->
+<td><textarea name="title" th:value="${title}"></textarea></td>
+<td><input type="submit"value="保存"></td>
+</tr>
+</table>
+<input type="hidden" name="code" th:value="${code}">
+</form>
+<form action="/back">
+<input type="submit" value="戻る">
+</form>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -52,8 +51,8 @@ public class UserController {
 			User user = users.get(0);
 			session.setAttribute("userInfo", user.getUserCode());
 
-			// セッションスコープにカテゴリ情報を格納する
-			session.setAttribute("users", userRepository.findAll());
+//			// セッションスコープにカテゴリ情報を格納する
+//			session.setAttribute("users", userRepository.findAll());
 			// list.htmlを表示する
 			mv.setViewName("redirect:/list");
 			return mv;
@@ -97,34 +96,24 @@ public class UserController {
 			return mv;
 		}
 
-		// セッションスコープから情報を取得
-		@SuppressWarnings("unchecked")
-		List<User> users = (List<User>) session.getAttribute("users");
-		if (users == null) {
-			// 空のユーザリストを生成
-			users = new ArrayList<User>();
-			// セッションスコープに保存
-			session.setAttribute("users", users);
+		// idとパスワードからUserテーブルの情報を取得
+		List<User> users = userRepository.findByUserIdAndPassword(userId, password);
+		if (users.size() == 0) {
+			// フォームの内容をusers
+			User user = new User(userId, password);
+			userRepository.saveAndFlush(user);// オブジェクト
+			mv.setViewName("redirect:/");
+			return mv;
 		}
 
 		// 登録済みユーザIDのチェック
-		for (User user : users) {
-			if (userId.equals(user.getUserId())) {
-				// 会員登録画面に遷移
-				mv.setViewName("newUser");
-				// エラーメッセージをセット
-				mv.addObject("message", "登録済みのユーザIDです");
-				return mv;
-			}
+		else {
+			// エラーメッセージをセット
+			mv.addObject("message", "登録済みのユーザIDです");
+			// 会員登録画面に遷移
+			mv.setViewName("newUser");
+			return mv;
 		}
-
-		// パラメータからオブジェクトを生成
-		User user = new User(userId, password);
-		// customerテーブルへの登録
-		userRepository.saveAndFlush(user);
-		// login.html(ログイン画面)を表示
-		mv.setViewName("login");
-		return mv;
 	}
 
 	/**
