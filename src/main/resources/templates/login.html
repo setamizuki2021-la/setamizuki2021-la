@@ -3,15 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
+<link href="/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<p>ログイン画面</p>
-<form action="/login" method="post">
-ユーザID  <input type="text" name="userId"><br>
-パスワード    <input type="password" name="password"><br>
-         <input type="submit" value="ログイン">
-</form>
-  <span th:text="${message}" style="color:red"></span><br> 
-<a href="/new">アカウント新規作成はこちら</a>
+<div class="display_center">
+	<p class="title">Log in</p><br>
+	<form action="/login" method="post" name="form">
+	ユーザーID <input type="text" name="userId" class="text"><br>
+	パスワード    <input type="password" name="password"class="text"><br>
+	         <!-- <input type="submit" value="ログイン"> -->
+	         <p></p>
+	           <span th:text="${message}" class="errmsg"></span><br> 
+	         <a href="javascript:form.submit()" class="btn btn-svg">
+  <svg>
+    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+  </svg>
+  <span>Login☟</span></a>
+	</form><br>
+	
+	<a href="/new" id="Signup">アカウント新規作成はこちら</a>
+</div>
 </body>
 </html>

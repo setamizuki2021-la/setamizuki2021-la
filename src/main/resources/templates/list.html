@@ -3,19 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>ToDo一覧</title>
+<link href="/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<a href="/logout">ログアウト</a>
+<a href="/logout" id="logout">Log out</a>
+<p class="title">TODO List</p>
 <form action="/add">
 <input type="submit" value="追加">
 </form>
 <table border="1">
-<tr><th>✓</th><th></th><th>ToDo</th><th></th></tr>
+<tr><th>✓</th><th></th><th id="todotitle">ToDo</th><th></th></tr>
 <tr th:each="todo:${todo}">
-	<td></td>
-	<td><form action="/check"><input type="submit" value="完了">	</form></td>
+	<td th:text="${todo.checked}"></td>
+	<td>
+		<a th:href="'/check?code='+${todo.code}" class="btn btn-border btn-red"><span>✓</span></a>
+	</td>
 	<td> <a th:href="'/add/'+${todo.code}"><span th:text="${todo.title}"></span></a></td>
-	<td><input type="submit" value="削除"></td>
+	<td>
+		 <a th:href="'/list/'+${todo.code}+'/delete'" class="btn btn-border"><span>Delete</span></a>
+	</td>
 </tr>
 </table>
 </body>

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ToDoRepository extends JpaRepository<ToDo, Integer> {
-	List<ToDo> findByUserCode(Integer userCode);
+	List<ToDo> findByUserCodeOrderByCodeAsc(Integer userCode);
 
 }

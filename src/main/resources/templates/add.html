@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>追加・編集</title>
+<link href="/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<p>追加・編集</p>
-<form action="/add" method="post">
+<div class="display_center">
+<p class="title" th:if="${code!=null}">Edit</p>
+<p class="title" th:if="${code==null}">Add</p>
+<form action="/add" method="post" name="form">
 <table border="1">
 <tr>
 <th>内容</th>
@@ -15,14 +22,14 @@
 
 <tr>
 <!-- <td th:text="${'/add/'+${todo.code}}"></td> -->
-<td><textarea name="title" th:value="${title}"></textarea></td>
-<td><input type="submit"value="保存"></td>
+<td><textarea name="title" th:text="${title}"></textarea></td>
+<td><a href="javascript:form.submit()"class="btn btn-border btn-red"><span>Save⇓</span></a></td>
 </tr>
 </table>
 <input type="hidden" name="code" th:value="${code}">
 </form>
-<form action="/back">
-<input type="submit" value="戻る">
-</form>
+ <span th:text="${message}" class="errmsg"></span><br> 
+<a href="/back"class="btn btn-border"><span>☜Back</span></a>
+</div>
 </body>
 </html>

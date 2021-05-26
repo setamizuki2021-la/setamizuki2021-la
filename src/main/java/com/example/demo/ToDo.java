@@ -35,6 +35,7 @@ public class ToDo {
 	public ToDo(Integer userCode, String title) {
 		this.userCode = userCode;
 		this.title = title;
+		this.checked = false;
 	}
 
 	public ToDo(Integer code) {
@@ -60,8 +61,22 @@ public class ToDo {
 		return title;
 	}
 
-	public Boolean getChecked() {
-		return checked;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getChecked() {
+		if (checked == true) {
+			// checkedがtrueだったら"✓"を戻す
+			return "✓";
+		} else {
+			// checkedがtrue以外だったら""を戻す
+			return "";
+		}
+	}
+
+	public void setChecked(Boolean checked) {
+		this.checked = checked;
 	}
 
 	public Integer getUserCode() {

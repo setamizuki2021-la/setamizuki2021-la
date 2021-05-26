@@ -3,16 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>新規登録</title>
+<link href="/style.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<p>アカウント新規作成</p>
-<form action="/new"method="post">
-ユーザID  <input type="text" name="userId"><br>
-パスワード    <input type="password" name="password"><br>
-
-         <input type="submit" value="登録"><br>
- <span th:text="${message}" style="color:red"></span>
+<div class="display_center">
+<p class="title">Sign up</p>
+<form action="/new"method="post" name="form">
+ユーザーID  <input type="text" name="userId" class="text"><br>
+パスワード    <input type="password" name="password" class="text"><br>
+<p></p>
+         <a href="javascript:form.submit()" class="btn btn-svg">
+  <svg>
+    <rect x="2" y="2" rx="0" fill="none" width=200 height="50"></rect>
+  </svg>
+  <span>Sign up☟</span></a><br>
+ <span th:text="${message}" class="errmsg"></span>
          
 </form>
+</div>
 </body>
 </html>
