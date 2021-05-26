@@ -14,17 +14,20 @@
 <p class="title" th:if="${code!=null}">Edit</p>
 <p class="title" th:if="${code==null}">Add</p>
 <form action="/add" method="post" name="form">
-<table border="1">
+<table class="osare-table2 col5t">
+<thead>
 <tr>
-<th>内容</th>
-<th></th>
+<th>TODO</th>
+<th class="tablewidth"></th>
 </tr>
-
+</thead>
+<tbody>
 <tr>
 <!-- <td th:text="${'/add/'+${todo.code}}"></td> -->
 <td><textarea name="title" th:text="${title}"></textarea></td>
 <td><a href="javascript:form.submit()"class="btn btn-border btn-red"><span>Save⇓</span></a></td>
 </tr>
+</tbody>
 </table>
 <input type="hidden" name="code" th:value="${code}">
 </form>

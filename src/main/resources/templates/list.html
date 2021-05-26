@@ -12,11 +12,15 @@
 <body>
 <a href="/logout" id="logout">Log out</a>
 <p class="title">TODO List</p>
-<form action="/add">
-<input type="submit" value="追加">
+<!--  <form action="/add">
+<input type="submit" value="追加">   ?code='+${todo.code}"
 </form>
-<table border="1">
-<tr><th>✓</th><th></th><th id="todotitle">ToDo</th><th></th></tr>
+<a th:href="'/add?'" class="btn btn-border btn-gray"><span>＋</span></a> -->
+<table class="osare-table col5t">
+<thead>
+<tr><th class="tablewidth">✓</th><th class="tablewidth"></th><th id="todotitle">ToDo</th><th class="tablewidth"></th></tr>
+</thead>
+<tbody>
 <tr th:each="todo:${todo}">
 	<td th:text="${todo.checked}"></td>
 	<td>
@@ -27,6 +31,8 @@
 		 <a th:href="'/list/'+${todo.code}+'/delete'" class="btn btn-border"><span>Delete</span></a>
 	</td>
 </tr>
+</tbody>
 </table>
+<a th:href="'/add?'" class="btn btn-border btn-gray"><span>＋</span></a>
 </body>
 </html>

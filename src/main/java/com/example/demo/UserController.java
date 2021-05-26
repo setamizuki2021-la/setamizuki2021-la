@@ -116,6 +116,14 @@ public class UserController {
 		}
 	}
 
+	/*
+	 * 戻るボタン押下時にlist.htmlに戻る
+	 */
+	@RequestMapping("/relogin")
+	public String relogin() {
+		return login();
+	}
+
 	/**
 	 * ログアウトを実行
 	 */
