@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
 <a href="/logout" id="logout">Log out</a>
@@ -18,7 +19,10 @@
 <a th:href="'/add?'" class="btn btn-border btn-gray"><span>＋</span></a> -->
 <table class="osare-table col5t">
 <thead>
-<tr><th class="tablewidth">✓</th><th class="tablewidth"></th><th id="todotitle">ToDo</th><th class="tablewidth"></th></tr>
+<tr><th class="tablewidth">✓</th>
+<th class="tablewidth"><i class="far fa-check-square"></i></th>
+<th id="todotitle">ToDo</th>
+<th class="tablewidth"><i class="far fa-trash-alt"></i></th></tr>
 </thead>
 <tbody>
 <tr th:each="todo:${todo}">
@@ -33,6 +37,7 @@
 </tr>
 </tbody>
 </table>
+<p></p>
 <a th:href="'/add?'" class="btn btn-border btn-gray"><span>＋</span></a>
 </body>
 </html>

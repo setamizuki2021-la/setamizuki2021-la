@@ -9,7 +9,7 @@ body{
 
 div.display_center{
 	position:fixed;
-	top:50%;
+	top:40%;
 	left:50%;
 	transform:translate(-50%,-50%);
 }
@@ -291,7 +291,7 @@ a.btn-border:active:before {
  background: #f5bfec;
 }
 .osare-table thead th:nth-child(3)  {
- background: #bcb3f1;
+ background: #9ac3a3;
 }
 .osare-table thead th:nth-child(4)  {
  background: #a5b0f3;
@@ -374,7 +374,7 @@ a.btn-border:active:before {
  
 /* ヘッダー行　１列ごとの色変え */
 .osare-table2 thead th:nth-child(1)  {
- background:#bcb3f1;
+ background:#9ac3a3;
 }
 
 .osare-table2 thead th:nth-child(2)  {
@@ -432,8 +432,33 @@ a.btn-border:active:before {
 .text{
 	height:40px;
 	font-size:25px;
+
 }
 .errmsg{
 font-size:20px;
 	color: #e44e4e;
+}
+#textarea{
+	border: none;
+	resize: none;
+	font-size:25px;
+  width:400px;
+  height:200px;
+}
+#loginup{
+	font-family: 'Big Shoulders Display', cursive;
+	font-size:50px;
+
+	position:relative;
+	top: 50px
+}
+#newuser{
+	font-family: 'Big Shoulders Display', cursive;
+	font-size:50px;
+	position:relative;
+	top: 10px
+}
+#img{
+	position:relative;
+	top: 50px
 }

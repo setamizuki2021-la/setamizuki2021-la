@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
 <div class="display_center">
@@ -18,13 +19,13 @@
 <thead>
 <tr>
 <th>TODO</th>
-<th class="tablewidth"></th>
+<th class="tablewidth"><i class="fas fa-download"></i></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <!-- <td th:text="${'/add/'+${todo.code}}"></td> -->
-<td><textarea name="title" th:text="${title}"></textarea></td>
+<td><textarea name="title" th:text="${title}" id="textarea"></textarea></td>
 <td><a href="javascript:form.submit()"class="btn btn-border btn-red"><span>Save⇓</span></a></td>
 </tr>
 </tbody>
